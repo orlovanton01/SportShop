@@ -5,8 +5,14 @@ import com.example.SportShop.model.Worker;
 import com.example.SportShop.repository.PostRepository;
 import com.example.SportShop.repository.WorkerRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -32,32 +38,25 @@ public class WorkerService {
 
     public void saveWorker(Worker worker) {
         workerRepository.save(worker);
-        Random rand = new Random();
-        Post newPost = new Post();
-        if (postRepository.findAll().isEmpty()) {
-            newPost.setPId(1);
-            newPost.setPost("director");
-            newPost.setSalary(String.valueOf(65000));
-        }
-        else
-            switch (rand.nextInt(3) + 2) {
-                case 2:
-                    newPost.setPId(2);
-                    newPost.setPost("consultant");
-                    newPost.setSalary(String.valueOf(25000));
-                    break;
-                case 3:
-                    newPost.setPId(3);
-                    newPost.setPost("cashier");
-                    newPost.setSalary(String.valueOf(20000));
-                    break;
-                case 4:
-                    newPost.setPId(4);
-                    newPost.setPost("storekeeper");
-                    newPost.setSalary(String.valueOf(15000));
-                    break;
+        postRepository.save(postService.addPost());
+    }
+
+    public void saveWorkersFromExcel(MultipartFile file) throws IOException {
+        try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
+            Sheet sheet = workbook.getSheetAt(0);
+
+            for (Row row : sheet) {
+                if (row.getRowNum() == 0) continue; // Пропускаем заголовок
+
+                Worker worker = new Worker();
+                worker.setWSurname(row.getCell(0).getStringCellValue());
+                worker.setWName(row.getCell(1).getStringCellValue());
+                worker.setWPatronymic(row.getCell(2).getStringCellValue());
+
+                workerRepository.save(worker);
+                postRepository.save(postService.addPost());
             }
-        postRepository.save(newPost);
+        }
     }
 
     public void updateWorker(Worker worker) {
