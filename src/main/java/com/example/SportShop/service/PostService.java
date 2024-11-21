@@ -19,7 +19,7 @@ public class PostService {
         return postOptional.isPresent() ? postOptional.get() : null;
     }
 
-    public Post addPost() {
+    public Post addNewPost() {
         Random rand = new Random();
         Post newPost = new Post();
         if (postRepository.findAll().isEmpty()) {

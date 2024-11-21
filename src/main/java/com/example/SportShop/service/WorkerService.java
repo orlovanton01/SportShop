@@ -36,7 +36,7 @@ public class WorkerService {
 
     public void saveWorker(Worker worker) {
         workerRepository.save(worker);
-        postRepository.save(postService.addPost());
+        postRepository.save(postService.addNewPost());
     }
 
     public void saveWorkersFromExcel(MultipartFile file) throws IOException {
@@ -52,7 +52,7 @@ public class WorkerService {
                 worker.setWPatronymic(row.getCell(2).getStringCellValue());
 
                 workerRepository.save(worker);
-                postRepository.save(postService.addPost());
+                postRepository.save(postService.addNewPost());
             }
         }
     }
