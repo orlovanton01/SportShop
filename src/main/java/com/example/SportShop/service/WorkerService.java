@@ -19,6 +19,8 @@ public class WorkerService {
 
     private final WorkerRepository workerRepository;
 
+    private final PostService postService;
+
     public List<Worker> getAllWorkers() {
         return workerRepository.findAll();
     }
@@ -61,5 +63,10 @@ public class WorkerService {
         postRepository.save(newPost);
     }
 
-    public void deleteWorkerById(Integer id) { workerRepository.deleteById(id); }
+    public void deleteWorkerById(Integer id) {
+        if (postService.getPostById(id) != null) {
+            postRepository.deleteById(id);
+            workerRepository.deleteById(id);
+        }
+    }
 }
