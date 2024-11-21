@@ -32,16 +32,13 @@ public class WorkerService {
 
     public void saveWorker(Worker worker) {
         workerRepository.save(worker);
-        String[] d_post= {"director", "consultant", "cashier", "storekeeper"};
-        Integer[] d_salary= {65000, 25000, 20000, 15000};
         Random rand = new Random();
         Post newPost = new Post();
-        if (postRepository.findAll().isEmpty())
-            for (int i = 0; i < 4; i++) {
-                newPost.setPId(i+1);
-                newPost.setPost(d_post[i]);
-                newPost.setSalary(String.valueOf(d_salary[i]));
-            }
+        if (postRepository.findAll().isEmpty()) {
+            newPost.setPId(1);
+            newPost.setPost("director");
+            newPost.setSalary(String.valueOf(65000));
+        }
         else
             switch (rand.nextInt(3) + 2) {
                 case 2:
@@ -61,6 +58,10 @@ public class WorkerService {
                     break;
             }
         postRepository.save(newPost);
+    }
+
+    public void updateWorker(Worker worker) {
+        workerRepository.save(worker);
     }
 
     public void deleteWorkerById(Integer id) {

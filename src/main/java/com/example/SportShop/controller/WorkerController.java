@@ -32,7 +32,7 @@ public class WorkerController {
 
     @PutMapping
     public String updateWorker(@RequestBody Worker worker) {
-        workerService.saveWorker(worker);
+        workerService.updateWorker(worker);
         return "Worker is updated";
     }
 
