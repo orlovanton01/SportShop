@@ -5,7 +5,6 @@ import com.example.SportShop.model.Purchase;
 import com.example.SportShop.model.Worker;
 import com.example.SportShop.repository.ProductRepository;
 import com.example.SportShop.repository.PurchaseRepository;
-import com.example.SportShop.repository.WorkerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
