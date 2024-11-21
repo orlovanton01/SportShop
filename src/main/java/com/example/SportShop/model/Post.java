@@ -24,7 +24,7 @@ public class Post {
     @Column(name = "post", length = 30)
     private String post;
 
-    @Column(name = "salary", length = 30)
-    private String salary;
+    @Column(name = "salary")
+    private Integer salary;
 
 }

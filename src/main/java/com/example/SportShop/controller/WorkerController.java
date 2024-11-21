@@ -3,6 +3,9 @@ package com.example.SportShop.controller;
 import com.example.SportShop.model.Worker;
 import com.example.SportShop.service.WorkerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -40,6 +43,25 @@ public class WorkerController {
     @GetMapping("/{id}")
     public Worker getWorkerById(@PathVariable Integer id) {
         return workerService.getWorkerById(id);
+    }
+
+    @GetMapping("/report")
+    public ResponseEntity<byte[]> getWorkerReport() {
+        try {
+            byte[] report = workerService.generateWorkerReport();
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("Content-Disposition", "attachment; filename=Worker_Report.docx");
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .contentType(org.springframework.http.MediaType.APPLICATION_OCTET_STREAM)
+                    .body(report);
+
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
     }
 
     @PutMapping
