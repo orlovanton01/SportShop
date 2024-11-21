@@ -1,5 +1,6 @@
 package com.example.SportShop.service;
 
+import com.example.SportShop.model.Post;
 import com.example.SportShop.model.Worker;
 import com.example.SportShop.repository.PostRepository;
 import com.example.SportShop.repository.WorkerRepository;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -16,11 +18,6 @@ public class WorkerService {
     private final PostRepository postRepository;
 
     private final WorkerRepository workerRepository;
-
-    public Worker fetchRandomWorker(int pId) {
-        return postRepository.findRandomWorkerByPostId(pId)
-                .orElseThrow(() -> new RuntimeException("No worker found for the given p_id."));
-    }
 
     public List<Worker> getAllWorkers() {
         return workerRepository.findAll();
@@ -33,6 +30,35 @@ public class WorkerService {
 
     public void saveWorker(Worker worker) {
         workerRepository.save(worker);
+        String[] d_post= {"director", "consultant", "cashier", "storekeeper"};
+        Integer[] d_salary= {65000, 25000, 20000, 15000};
+        Random rand = new Random();
+        Post newPost = new Post();
+        if (postRepository.findAll().isEmpty())
+            for (int i = 0; i < 4; i++) {
+                newPost.setPId(i+1);
+                newPost.setPost(d_post[i]);
+                newPost.setSalary(String.valueOf(d_salary[i]));
+            }
+        else
+            switch (rand.nextInt(3) + 2) {
+                case 2:
+                    newPost.setPId(2);
+                    newPost.setPost("consultant");
+                    newPost.setSalary(String.valueOf(25000));
+                    break;
+                case 3:
+                    newPost.setPId(3);
+                    newPost.setPost("cashier");
+                    newPost.setSalary(String.valueOf(20000));
+                    break;
+                case 4:
+                    newPost.setPId(4);
+                    newPost.setPost("storekeeper");
+                    newPost.setSalary(String.valueOf(15000));
+                    break;
+            }
+        postRepository.save(newPost);
     }
 
     public void deleteWorkerById(Integer id) { workerRepository.deleteById(id); }
