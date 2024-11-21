@@ -1,6 +1,5 @@
 package com.example.SportShop.service;
 
-import com.example.SportShop.model.Post;
 import com.example.SportShop.model.Worker;
 import com.example.SportShop.repository.PostRepository;
 import com.example.SportShop.repository.WorkerRepository;
@@ -15,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 @RequiredArgsConstructor

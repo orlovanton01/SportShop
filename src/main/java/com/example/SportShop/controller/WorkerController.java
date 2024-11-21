@@ -3,8 +3,6 @@ package com.example.SportShop.controller;
 import com.example.SportShop.model.Worker;
 import com.example.SportShop.service.WorkerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
