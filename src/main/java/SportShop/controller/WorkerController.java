@@ -1,7 +1,7 @@
-package com.example.SportShop.controller;
+package SportShop.controller;
 
-import com.example.SportShop.model.Worker;
-import com.example.SportShop.service.WorkerService;
+import SportShop.model.Worker;
+import SportShop.service.WorkerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
-package com.example.SportShop;
+package SportShop;
 
-import com.example.SportShop.service.WorkerService;
+import SportShop.service.WorkerService;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

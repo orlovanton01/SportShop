@@ -1,8 +1,8 @@
-package com.example.SportShop.service;
+package SportShop.service;
 
-import com.example.SportShop.model.Worker;
-import com.example.SportShop.repository.PostRepository;
-import com.example.SportShop.repository.WorkerRepository;
+import SportShop.model.Worker;
+import SportShop.repository.PostRepository;
+import SportShop.repository.WorkerRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

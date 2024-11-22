@@ -1,7 +1,7 @@
-package com.example.SportShop.service;
+package SportShop.service;
 
-import com.example.SportShop.model.Post;
-import com.example.SportShop.repository.PostRepository;
+import SportShop.model.Post;
+import SportShop.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

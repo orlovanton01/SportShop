@@ -1,10 +1,3 @@
-drop database if exists shop;
-create database shop;
-
-drop table if exists people, d_posts, d_products, manufacturers, workers, posts, purchase, products;
-
-drop procedure if exists filling;
-
 -- справочники
 
 create table people(

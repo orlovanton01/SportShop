@@ -1,4 +1,4 @@
-package com.example.SportShop.model;
+package SportShop.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
