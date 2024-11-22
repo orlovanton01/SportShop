@@ -99,9 +99,9 @@ public class WorkerService {
             // Добавление данных
             for (Map<String, Object> worker : workers) {
                 XWPFTableRow row = table.createRow();
-                createStyledCell(row.getCell(0), worker.get("surname").toString(), false);
-                createStyledCell(row.getCell(1), worker.get("name").toString(), false);
-                createStyledCell(row.getCell(2), worker.get("patronymic").toString(), false);
+                createStyledCell(row.getCell(0), worker.get("surname") != null ? worker.get("surname").toString() : "", false);
+                createStyledCell(row.getCell(1), worker.get("name") != null ? worker.get("name").toString() : "", false);
+                createStyledCell(row.getCell(2), worker.get("patronymic") != null ? worker.get("patronymic").toString() : "", false);
             }
 
             // Сохранение документа в байтовый массив
