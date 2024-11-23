@@ -1,7 +1,9 @@
 package SportShop.service;
 
+import SportShop.model.Purchase;
 import SportShop.model.Worker;
 import SportShop.repository.PostRepository;
+import SportShop.repository.PurchaseRepository;
 import SportShop.repository.WorkerRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Row;
@@ -28,6 +30,8 @@ public class WorkerService {
     private final WorkerRepository workerRepository;
 
     private final PostService postService;
+
+    private final PurchaseRepository purchaseRepository;
 
     public List<Worker> getAllWorkers() {
         return workerRepository.findAll();
@@ -127,6 +131,9 @@ public class WorkerService {
         if (postService.getPostById(id) != null) {
             postRepository.deleteById(id);
             workerRepository.deleteById(id);
+            for (Purchase purchase : purchaseRepository.findAll())
+                if (purchase.getWorker() == getWorkerById(id))
+                    purchase.setWorker(null);
         }
     }
 }

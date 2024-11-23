@@ -17,7 +17,7 @@ public class Purchase {
     @Column(name = "c_id")
     private Integer cId;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "w_id", referencedColumnName = "w_id")
     private Worker worker;
 
