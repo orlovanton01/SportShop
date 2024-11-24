@@ -42,9 +42,13 @@ public class WorkerService {
         return workerOptional.isPresent() ? workerOptional.get() : null;
     }
 
-    public void saveWorker(Worker worker) {
+    public String saveWorker(Worker worker) {
         workerRepository.save(worker);
-        postRepository.save(postService.addNewPost());
+        if (postService.getPostById(worker.getId()) == null) {
+            postRepository.save(postService.addNewPost());
+            return "Worker are created";
+        }
+        return "Worker are updated";
     }
 
     public void saveWorkersFromExcel(MultipartFile file) throws IOException {
@@ -121,10 +125,6 @@ public class WorkerService {
         XWPFRun run = paragraph.createRun();
         run.setText(text);
         run.setBold(isBold);
-    }
-
-    public void updateWorker(Worker worker) {
-        workerRepository.save(worker);
     }
 
     public void deleteWorkerById(Integer id) {

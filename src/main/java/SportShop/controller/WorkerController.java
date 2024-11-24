@@ -21,8 +21,7 @@ public class WorkerController {
 
     @PostMapping
     public String addWorker(@RequestBody Worker worker) {
-        workerService.saveWorker(worker);
-        return "Worker is created";
+        return workerService.saveWorker(worker);
     }
 
     @PostMapping("/upload")
@@ -66,8 +65,7 @@ public class WorkerController {
 
     @PutMapping
     public String updateWorker(@RequestBody Worker worker) {
-        workerService.updateWorker(worker);
-        return "Worker is updated";
+        return workerService.saveWorker(worker);
     }
 
     @DeleteMapping("/{id}")

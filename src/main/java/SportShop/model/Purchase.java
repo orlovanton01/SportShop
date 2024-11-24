@@ -21,7 +21,6 @@ public class Purchase {
     @JoinColumn(name = "w_id", referencedColumnName = "w_id")
     private Worker worker;
 
-
     @Column(name = "dt", length = 30)
     private String dt;
 
