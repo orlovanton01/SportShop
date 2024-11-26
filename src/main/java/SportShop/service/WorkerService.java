@@ -56,7 +56,6 @@ public class WorkerService {
             Sheet sheet = workbook.getSheetAt(0);
 
             for (Row row : sheet) {
-                if (row.getRowNum() == 0) continue; // Пропускаем пустые строки
 
                 Worker worker = new Worker();
                 worker.setWSurname(row.getCell(0).getStringCellValue());
