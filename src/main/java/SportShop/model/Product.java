@@ -14,7 +14,7 @@ public class Product {
     @Column(name = "ps_id", nullable = false)
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ps_id", nullable = false, referencedColumnName = "ps_id", insertable = false, updatable = false)
     private Purchase purchase;
 

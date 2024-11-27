@@ -14,7 +14,7 @@ public class Post {
     @Column(name = "w_id", nullable = false)
     private Integer id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "w_id", nullable = false, referencedColumnName = "w_id", insertable = false, updatable = false)
     private Worker worker;
 
