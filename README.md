@@ -6,7 +6,7 @@
 ![image](https://github.com/user-attachments/assets/ed2f90f6-ed1c-43b5-9e9c-110f467ee0ee)
 
 - `spring.flyway.enabled`
-  Если вы хотите работать с заполненными таблицами, то выставите эту опцию в `true`. Если нет, то в `false`. Подробнее о Flyway см. в отчёте
+  Если вы хотите работать с заполненными таблицами, то выставите эту опцию в `true` (выставлено по умолчанию). Если нет, то в `false`. Подробнее о Flyway см. в отчёте
 - `spring.datasource.url`
   Укажите ваш хост и порт для подключения к используемой БД
 - `spring.datasource.username`
