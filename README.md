@@ -3,7 +3,7 @@
 2. Создать у себя любым доступным способом пустую БД `shop`
 3. В файле `application.properties` (см. структуру проекта в приложении отчёта) указать следующие настройки:
   
-![Снимок экрана 2024-12-02 175538](https://github.com/user-attachments/assets/1c9e4c69-424f-44a2-b09f-406219a636d9)
+![image](https://github.com/user-attachments/assets/ed2f90f6-ed1c-43b5-9e9c-110f467ee0ee)
 
 - `spring.flyway.enabled`
   Если вы хотите работать с заполненными таблицами, то выставите эту опцию в `true`. Если нет, то в `false`. Подробнее о Flyway см. в отчёте
