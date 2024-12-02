@@ -1,3 +1,4 @@
 Для запуска проекта необходимо: 
-1. В файле `application.properties` (см. структуру проекта в приложении отчёта) указать следующие настройки:  
-![image](https://github.com/user-attachments/assets/e4c6f8e0-b7d8-4d4c-89b4-5de6f0f17237)
+1. В файле `application.properties` (см. структуру проекта в приложении отчёта) указать следующие настройки:
+  
+![Снимок экрана 2024-12-02 175538](https://github.com/user-attachments/assets/1c9e4c69-424f-44a2-b09f-406219a636d9)
