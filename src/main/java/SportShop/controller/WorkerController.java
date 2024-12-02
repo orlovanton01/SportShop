@@ -65,7 +65,7 @@ public class WorkerController {
 
     @PutMapping
     public String updateWorker(@RequestBody Worker worker) {
-        return workerService.saveWorker(worker);
+        return workerService.updateWorker(worker);
     }
 
     @DeleteMapping("/{id}")

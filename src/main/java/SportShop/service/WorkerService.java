@@ -43,6 +43,21 @@ public class WorkerService {
     }
 
     public String saveWorker(Worker worker) {
+        boolean flag = true;
+        for (Worker w : getAllWorkers())
+            if (w.getId() == worker.getId()) {
+                flag = false;
+                break;
+            }
+        if (flag) {
+            workerRepository.save(worker);
+            postRepository.save(postService.addNewPost());
+            return "Worker are created";
+        }
+        return "Worker already exists";
+    }
+
+    public String updateWorker(Worker worker) {
         workerRepository.save(worker);
         if (postService.getPostById(worker.getId()) == null) {
             postRepository.save(postService.addNewPost());
