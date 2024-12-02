@@ -69,7 +69,7 @@ public class WorkerController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteWorker(@PathVariable Integer id) {
+    public String deleteWorkerById(@PathVariable Integer id) {
         if (workerService.getWorkerById(id) != null) {
             workerService.deleteWorkerById(id);
             return "Worker is deleted";
