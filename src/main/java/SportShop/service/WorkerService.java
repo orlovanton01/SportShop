@@ -43,13 +43,7 @@ public class WorkerService {
     }
 
     public String saveWorker(Worker worker) {
-        boolean flag = true;
-        for (Worker w : getAllWorkers())
-            if (w.getId() == worker.getId()) {
-                flag = false;
-                break;
-            }
-        if (flag) {
+        if (!workerRepository.existsById(worker.getId())) {
             workerRepository.save(worker);
             postRepository.save(postService.addNewPost());
             return "Worker are created";
