@@ -29,7 +29,7 @@ public class WorkerController {
         try {
             workerService.saveWorkersFromExcel(file);
             return "Workers are uploaded";
-        } catch (IOException e) {
+        } catch (Exception e) {
             return "Error occurred";
         }
     }
